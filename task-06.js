@@ -10,9 +10,8 @@ const calculateTotalPrice = function(allProdcuts, productName) {
   let totalPrice;
   for (const product of allProdcuts) {
     if (productName === product.name)
-      totalPrice = product.price * product.quantity;
+      return (totalPrice = product.price * product.quantity);
   }
-  return totalPrice;
 };
 
 console.log(calculateTotalPrice(products, "Радар"));

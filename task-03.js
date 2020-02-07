@@ -1,12 +1,11 @@
 "use strict";
 const findBestEmployee = function(employees) {
-  employees = Object.entries(employees);
   let maxValue = 0;
   let name;
-  for (const arr of employees) {
-    if (maxValue < arr[1]) {
-      maxValue = arr[1];
-      name = arr[0];
+  for (const key in employees) {
+    if (maxValue < employees[key]) {
+      maxValue = employees[key];
+      name = key;
     }
   }
   return name;
@@ -19,7 +18,7 @@ console.log(
     helen: 1,
     lorence: 99
   })
-); 
+);
 
 console.log(
   findBestEmployee({
@@ -27,7 +26,7 @@ console.log(
     mango: 17,
     ajax: 4
   })
-); 
+);
 
 console.log(
   findBestEmployee({
@@ -36,4 +35,4 @@ console.log(
     kiwi: 19,
     chelsy: 38
   })
-); 
+);

@@ -1,7 +1,6 @@
 "use strict";
 const countProps = function(obj) {
-  const values = Object.values(obj);
-  return values.length;
+  return Object.keys(obj).length;
 };
 
 console.log(countProps({}));

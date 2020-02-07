@@ -4,17 +4,12 @@ const user = {
   age: 20,
   hobby: "html",
   premium: true,
-  changeHobby(newHobby) {
-    this.hobby = newHobby;
-  }
 };
 
-user.changeHobby("skydiving");
+user.hobby = "skydiving";
 user.mood = "happy";
 user.premium = false;
 
-const keys = Object.keys(user);
-
-for (const key of keys) {
+for (const key of Object.keys(user)) {
   console.log(`${key} : ${user[key]}`);
 }

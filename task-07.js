@@ -7,54 +7,50 @@ const Transaction = {
 
 const account = {
   balance: 0,
-
   transactions: [],
 
   createTransaction(amount, type) {
-    const transaction = {
-      id,
+    return {
+      id: this.transactions.length,
       type,
       amount
     };
-    return transaction;
   },
 
   deposit(amount) {
     this.transactions.push(this.createTransaction(amount, "deposit"));
+    this.balance += amount;
   },
 
   withdraw(amount) {
-    this.transactions.push(this.createTransaction(amount, "deposit"));
+    this.transactions.push(this.createTransaction(amount, "withdraw"));
     if (amount > balance) {
       console.log("Снятие такой суммы не возможно, недостаточно средств.");
     }
+    this.balance -= amount;
   },
 
-  getBalance(transactions) {
-    for (this.transaction of this.transactions) {
-      balance += this.transaction.amount;
-    }
+  getBalance() {
     return this.balance;
   },
 
   getTransactionDetails(id) {
-    for (let i = 0; i < this.transactions.length; i += 1) {
-      this.transaction = this.transactions[i];
-      if (this.transaction.id === id) {
-        return this.transaction.amount;
+    for (let transaction of this.transactions) {
+      if (transaction.id === id) {
+        return transaction;
       }
     }
   },
 
   getTransactionTotal(type) {
-    for (let i = 0; i < this.transactions.length; i += 1) {
-      this.transaction = this.transactions[i];
-      if (this.transaction.type === type) {
-        return (balance += amount);
+    let total = 0;
+    for (let transaction of this.transactions) {
+      if (transaction.type === type) {
+        total += transaction.amount;
       }
     }
+    return total;
   }
-
 };
 
-console.log(account);
+
